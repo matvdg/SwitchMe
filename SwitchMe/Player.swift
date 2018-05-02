@@ -8,42 +8,38 @@ enum PlayerColor: String {
     case blue
 }
 
-class Player: SKShapeNode, Element {
+class Player: Element {
     
-    override init() {
-        super.init()
-        self.path = CGPath(rect: CGRect(x: -cellSize/2, y: -cellSize/2, width: cellSize, height: cellSize), transform: nil)
-    }
-    
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func render() -> SKNode {
-        self.fillColor = self.color
-        self.strokeColor = .clear
-        self.position = self.coordinates.position
-        return self
-    }
-    
+    var node: SKNode
+    var type: ElementType = .player
     var color: SKColor = .red {
-        didSet {
-            self.fillColor = self.color
+        willSet {
+            self.square.fillColor = newValue
         }
     }
     
     var coordinates = Coordinates(x: .center, y: 100) {
         didSet {
-            self.position = self.coordinates.position
+            self.square.position = self.coordinates.position
         }
+    }
+    
+    private var square: SKShapeNode {
+        return self.node as! SKShapeNode
+    }
+    
+    init() {
+        self.node = SKShapeNode(rectOf: CGSize(width: cellSize, height: cellSize))
+        self.square.strokeColor = .clear
+        self.square.fillColor = .red
+        self.square.position = self.coordinates.position
     }
     
     func switchColor() {
         switch self.color {
-        case .red:
+        case UIColor.red:
             self.color = .green
-        case .green:
+        case UIColor.green:
             self.color = .blue
         default:
             self.color = .red
@@ -62,5 +58,8 @@ class Player: SKShapeNode, Element {
         self.coordinates.x = Alignment(rawValue: newPosition)!
     }
     
+    func computeNextRender() {
+        
+    }
     
 }

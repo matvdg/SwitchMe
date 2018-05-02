@@ -23,6 +23,7 @@
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="MaS-LY-cta" appends="YES" id="L2u-o6-JoL"/>
                             <outletCollection property="gestureRecognizers" destination="ZTq-S1-uOH" appends="YES" id="Drs-eM-92q"/>
+                            <outletCollection property="gestureRecognizers" destination="eSN-F0-HQM" appends="YES" id="VhZ-Du-3p1"/>
                         </connections>
                     </view>
                 </viewController>
@@ -37,6 +38,11 @@
                         <action selector="swipeLeft:" destination="BV1-FR-VrT" id="vU5-tu-3at"/>
                     </connections>
                 </swipeGestureRecognizer>
+                <tapGestureRecognizer id="eSN-F0-HQM" userLabel="didTap">
+                    <connections>
+                        <action selector="changeColor:" destination="BV1-FR-VrT" id="JFR-Hy-brN"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
         </scene>
     </scenes>

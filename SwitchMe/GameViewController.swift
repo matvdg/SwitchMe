@@ -12,6 +12,10 @@ class GameViewController: UIViewController {
         self.scene.moveLeft()
     }
     
+    @IBAction func changeColor(_ sender: Any) {
+        self.scene.changeColor()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

@@ -3,6 +3,7 @@ import SpriteKit
 class GameScene: SKScene {
     
     private var player = Player()
+    private var map = Map()
     
     func moveLeft() {
         self.player.moveLeft()
@@ -12,16 +13,17 @@ class GameScene: SKScene {
         self.player.moveRight()
     }
     
+    func changeColor() {
+        self.player.switchColor()
+    }
+    
     func addPlayer() {
-        self.scene?.addChild(self.player.render())
+        self.map.elements.append(self.player)
+        self.scene?.addChild(self.player.node)
     }
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
-        
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.player.switchColor()
+        self.map.render()
     }
 }
