@@ -5,6 +5,14 @@ class GameScene: SKScene {
     private var player = Player()
     private var map = Map()
     
+    func prepare(viewSize: CGSize) {
+        self.map.scene = self
+        self.backgroundColor = UIColor(named: "map")!
+        self.scaleMode = .aspectFill
+        self.size = viewSize
+        self.addPlayer()
+    }
+    
     func moveLeft() {
         self.player.moveLeft()
     }
@@ -18,12 +26,12 @@ class GameScene: SKScene {
     }
     
     func addPlayer() {
-        self.map.elements.append(self.player)
-        self.scene?.addChild(self.player.node)
+        self.map.addElement(element: self.player)
     }
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
         self.map.render()
     }
+    
 }

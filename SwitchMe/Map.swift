@@ -3,20 +3,16 @@ import SpriteKit
 
 class Map {
     
-    private var scene: SKScene
-    
-    init(scene: SKScene) {
-        self.scene = scene
-    }
-    
     var elements = [Element]()
+    var scene = SKScene()
     
     func render() {
-        elements.forEach { $0.node }
+        
     }
     
-    func computeNextGeneration() {
-        
+    func addElement(element: Element) {
+        self.elements.append(element)
+        self.scene.addChild(element.node)
     }
     
 }
