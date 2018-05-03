@@ -17,6 +17,4 @@ protocol Element {
     var coordinates: Coordinates { get set }
     var type: ElementType { get set }
     
-    func computeNextRender()
-    
 }

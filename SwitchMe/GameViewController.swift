@@ -21,12 +21,10 @@ class GameViewController: UIViewController {
         
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
-            self.scene.backgroundColor = UIColor(named: "map")!
-            self.scene.scaleMode = .aspectFill
-            self.scene.size = self.view.bounds.size
+            self.scene.prepare(viewSize: self.view.bounds.size)
+            
             // Present the scene
             view.presentScene(self.scene)
-            self.scene.addPlayer()
             view.ignoresSiblingOrder = true
             view.showsFPS = false
             view.showsNodeCount = false

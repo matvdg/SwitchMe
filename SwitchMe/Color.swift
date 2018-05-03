@@ -10,7 +10,6 @@ import UIKit
 
 extension UIColor {
     
-    
     static var red: UIColor {
         return UIColor(named: "red")!
     }
@@ -26,6 +25,5 @@ extension UIColor {
     static var multicolor: UIColor {
         return UIColor(named: "purple")!
     }
-    
     
 }

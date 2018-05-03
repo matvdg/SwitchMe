@@ -12,6 +12,11 @@ class Player: Element {
     
     var node: SKNode
     var type: ElementType = .player
+    
+    private var square: SKShapeNode {
+        return self.node as! SKShapeNode
+    }
+    
     var color: SKColor = .red {
         willSet {
             self.square.fillColor = newValue
@@ -22,10 +27,6 @@ class Player: Element {
         didSet {
             self.square.position = self.coordinates.position
         }
-    }
-    
-    private var square: SKShapeNode {
-        return self.node as! SKShapeNode
     }
     
     init() {
@@ -56,10 +57,6 @@ class Player: Element {
         let currentPosition = self.coordinates.x.rawValue
         let newPosition = currentPosition + 1 < 5 ? currentPosition + 1 : 4
         self.coordinates.x = Alignment(rawValue: newPosition)!
-    }
-    
-    func computeNextRender() {
-        
     }
     
 }
