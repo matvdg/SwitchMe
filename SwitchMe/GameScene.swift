@@ -4,6 +4,10 @@ class GameScene: SKScene {
     
     private var player = Player()
     private var map = Map()
+    private var previousTime: TimeInterval = 0
+    private let refreshRate: TimeInterval = 1/60 // 60fps like The Hobbitches
+    
+    static let yMoveVector: CGFloat = 5
     
     func prepare(viewSize: CGSize) {
         self.map.scene = self
@@ -11,6 +15,7 @@ class GameScene: SKScene {
         self.scaleMode = .aspectFill
         self.size = viewSize
         self.addPlayer()
+        self.map.addLine()
     }
     
     func moveLeft() {
@@ -30,7 +35,8 @@ class GameScene: SKScene {
     }
     
     override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
+        guard currentTime - self.previousTime >= self.refreshRate else { return }
+        self.previousTime = currentTime
         self.map.render()
     }
     

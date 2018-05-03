@@ -3,10 +3,7 @@ import SpriteKit
 
 enum ElementType {
     case player
-    case redWall
-    case blueWall
-    case greenWall
-    case blackWall
+    case wall
     case weaponBonus
 }
 
@@ -16,5 +13,6 @@ protocol Element {
     var color: SKColor { get set }
     var coordinates: Coordinates { get set }
     var type: ElementType { get set }
+    func moveDown()
     
 }

@@ -26,4 +26,8 @@ extension UIColor {
         return UIColor(named: "purple")!
     }
     
+    static var black: UIColor {
+        return UIColor(named: "black")!
+    }
+    
 }

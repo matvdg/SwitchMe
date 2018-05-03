@@ -59,4 +59,6 @@ class Player: Element {
         self.coordinates.x = Alignment(rawValue: newPosition)!
     }
     
+    func moveDown() {}
+    
 }
