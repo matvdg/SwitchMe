@@ -2,13 +2,9 @@
 import Foundation
 import SpriteKit
 
-enum PlayerColor: String {
-    case red
-    case green
-    case blue
-}
-
 class Player: Element {
+    
+    let animationDuration: TimeInterval = 0.05
     
     var node: SKNode
     var type: ElementType = .player
@@ -17,7 +13,7 @@ class Player: Element {
         return self.node as! SKShapeNode
     }
     
-    var color: SKColor = .red {
+    var color: SKColor = .green {
         willSet {
             self.square.fillColor = newValue
         }
@@ -25,25 +21,25 @@ class Player: Element {
     
     var coordinates = Coordinates(x: .center, y: 100) {
         didSet {
-            self.square.position = self.coordinates.position
+            self.square.run(SKAction.moveTo(x: self.coordinates.position.x, duration: self.animationDuration))
         }
     }
     
     init() {
-        self.node = SKShapeNode(rectOf: CGSize(width: cellSize, height: cellSize))
+        self.node = SKShapeNode(rectOf: CGSize(width: Map.cellSize, height: Map.cellSize))
         self.square.strokeColor = .clear
-        self.square.fillColor = .red
+        self.square.fillColor = self.color
         self.square.position = self.coordinates.position
     }
     
-    func switchColor() {
+    func switchColor(left: Bool = false, right: Bool = false) {
         switch self.color {
-        case UIColor.red:
-            self.color = .green
-        case UIColor.green:
-            self.color = .blue
+        case .red:
+            self.color = left ? .blue : .green
+        case .green:
+            self.color = left ? .red : .blue
         default:
-            self.color = .red
+            self.color = left ? .green : .red
         }
     }
     
@@ -60,5 +56,12 @@ class Player: Element {
     }
     
     func moveDown() {}
+
+    func tearDown() {
+        self.color = .green
+        self.coordinates.x = .center
+        self.node.removeFromParent()
+    }
+    
     
 }

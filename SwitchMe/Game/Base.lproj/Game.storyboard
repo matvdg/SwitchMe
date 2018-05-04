@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Game View Controller-->
+        <scene sceneID="tXr-a1-R10">
+            <objects>
+                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="SwitchMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOA-VV-fe3">
+                                <rect key="frame" x="166.66666666666666" y="44" width="43" height="72"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="72" id="Mpu-h4-p8L"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="60"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sbc-cF-eCO">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="X23-gg-nPA">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tKp-DI-tAa">
+                                            <rect key="frame" x="0.0" y="334.33333333333331" width="375" height="143.33333333333331"/>
+                                            <string key="text">GAME
+OVER</string>
+                                            <fontDescription key="fontDescription" type="system" weight="black" pointSize="60"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uvb-DY-8g5">
+                                            <rect key="frame" x="153.33333333333334" y="577.66666666666663" width="69" height="48"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                            <state key="normal" title="Retry">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="retry:" destination="BV1-FR-VrT" eventType="touchUpInside" id="u3M-nt-iID"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="tKp-DI-tAa" firstAttribute="centerY" secondItem="X23-gg-nPA" secondAttribute="centerY" id="1I6-xf-83R"/>
+                                        <constraint firstItem="uvb-DY-8g5" firstAttribute="top" secondItem="tKp-DI-tAa" secondAttribute="bottom" constant="100" id="Orh-RI-2y6"/>
+                                        <constraint firstItem="uvb-DY-8g5" firstAttribute="centerX" secondItem="X23-gg-nPA" secondAttribute="centerX" id="QIj-Cv-cRO"/>
+                                        <constraint firstItem="tKp-DI-tAa" firstAttribute="leading" secondItem="X23-gg-nPA" secondAttribute="leading" id="nhA-Pi-bOf"/>
+                                        <constraint firstAttribute="trailing" secondItem="tKp-DI-tAa" secondAttribute="trailing" id="tBY-4r-tng"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="sbc-cF-eCO" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" id="Jat-dn-AyS"/>
+                            <constraint firstItem="hOA-VV-fe3" firstAttribute="centerX" secondItem="3se-qz-xqx" secondAttribute="centerX" id="Jpl-BS-qqz"/>
+                            <constraint firstItem="hOA-VV-fe3" firstAttribute="top" secondItem="4qk-I5-YsI" secondAttribute="top" id="MDx-MJ-CM3"/>
+                            <constraint firstItem="sbc-cF-eCO" firstAttribute="leading" secondItem="4qk-I5-YsI" secondAttribute="leading" id="Md2-pv-Ktb"/>
+                            <constraint firstItem="4qk-I5-YsI" firstAttribute="trailing" secondItem="sbc-cF-eCO" secondAttribute="trailing" id="bE2-GV-4vx"/>
+                            <constraint firstAttribute="bottom" secondItem="sbc-cF-eCO" secondAttribute="bottom" id="cms-1f-GTG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="MaS-LY-cta" appends="YES" id="L2u-o6-JoL"/>
+                            <outletCollection property="gestureRecognizers" destination="ZTq-S1-uOH" appends="YES" id="Drs-eM-92q"/>
+                            <outletCollection property="gestureRecognizers" destination="eSN-F0-HQM" appends="YES" id="VhZ-Du-3p1"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="gameOverBlurView" destination="sbc-cF-eCO" id="b40-af-3e9"/>
+                        <outlet property="scoreLabel" destination="hOA-VV-fe3" id="dnl-9J-h3d"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="MaS-LY-cta" userLabel="swipeRight">
+                    <connections>
+                        <action selector="swipeRight:" destination="BV1-FR-VrT" id="4dm-TQ-efg"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="ZTq-S1-uOH" userLabel="swipeLeft">
+                    <connections>
+                        <action selector="swipeLeft:" destination="BV1-FR-VrT" id="vU5-tu-3at"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <tapGestureRecognizer id="eSN-F0-HQM" userLabel="didTap">
+                    <connections>
+                        <action selector="changeColor:" destination="BV1-FR-VrT" id="JFR-Hy-brN"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="140" y="132.26600985221674"/>
+        </scene>
+    </scenes>
+</document>

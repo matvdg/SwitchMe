@@ -1,11 +1,3 @@
-//
-//  Color.swift
-//  SwitchMe
-//
-//  Created by Mathieu Vandeginste on 01/05/2018.
-//  Copyright © 2018 LibertyRider. All rights reserved.
-//
-
 import UIKit
 
 extension UIColor {

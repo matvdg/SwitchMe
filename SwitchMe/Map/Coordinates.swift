@@ -1,14 +1,12 @@
 import UIKit
 
-let cellSize = UIScreen.main.bounds.width / 6
-
 struct Coordinates {
     
     var x: Alignment
     var y: CGFloat
     
     var position: CGPoint {
-        return CGPoint(x: x.rawValue * cellSize + cellSize, y: y)
+        return CGPoint(x: x.rawValue * Map.cellSize + Map.cellSize, y: y)
     }
 }
 

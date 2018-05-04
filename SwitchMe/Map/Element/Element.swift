@@ -14,5 +14,6 @@ protocol Element {
     var coordinates: Coordinates { get set }
     var type: ElementType { get set }
     func moveDown()
+    func tearDown()
     
 }
