@@ -23,6 +23,7 @@
 		F6F4892F2097DE86002E4C2E /* Game.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6F4892D2097DE86002E4C2E /* Game.storyboard */; };
 		F6F489312097DE87002E4C2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6F489302097DE87002E4C2E /* Assets.xcassets */; };
 		F6F489342097DE87002E4C2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6F489322097DE87002E4C2E /* LaunchScreen.storyboard */; };
+		F9691A5C209C6DEF00AAA14E /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9691A5B209C6DEF00AAA14E /* Config.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		F6F489302097DE87002E4C2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F6F489332097DE87002E4C2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F6F489352097DE87002E4C2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F9691A5B209C6DEF00AAA14E /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 				F6E83005209BBEE100D30D91 /* Game */,
 				F6E83006209BBEF600D30D91 /* Shared */,
 				F6E83007209BBF0300D30D91 /* Map */,
+				F9691A5B209C6DEF00AAA14E /* Config.plist */,
 			);
 			path = SwitchMe;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9691A5C209C6DEF00AAA14E /* Config.plist in Resources */,
 				F6F4892F2097DE86002E4C2E /* Game.storyboard in Resources */,
 				F6F489312097DE87002E4C2E /* Assets.xcassets in Resources */,
 				F6F489342097DE87002E4C2E /* LaunchScreen.storyboard in Resources */,

@@ -44,7 +44,7 @@ class Wall: Element {
     }
     
     init() {
-        self.node = SKShapeNode(rectOf: CGSize(width: Map.cellSize, height: Map.cellSize))
+        self.node = SKShapeNode(rectOf: CGSize(width: Map.cellSize, height: Map.cellSize), cornerRadius: Game.config["wallCornerRadius"] as! CGFloat)
         self.square.strokeColor = .clear
         self.square.fillColor = .red
         self.addShadow()

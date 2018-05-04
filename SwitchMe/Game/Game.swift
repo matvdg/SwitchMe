@@ -8,6 +8,20 @@ protocol GameDelegate {
 
 class Game {
     
+    /*
+     * Static attributes and methods
+     */
+    static var config = NSDictionary()
+    
+    static func loadConfig() {
+        if let path = Bundle.main.path(forResource: "Config", ofType: "plist") {
+            Game.config = NSDictionary(contentsOfFile: path)!
+        }
+    }
+    
+    /*
+     * Instance attributes and methods
+     */
     var delegate: GameDelegate?
     var scene: GameScene
     var player: Player
@@ -25,7 +39,6 @@ class Game {
             self.delegate?.didUpdate(score: newValue)
             if newValue > 10 {
                 GameScene.yMoveVector = GameScene.yMoveVectorInitial + CGFloat(log10(Double(newValue)))
-                print(GameScene.yMoveVector)
             }
         }
     }

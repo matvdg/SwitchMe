@@ -3,7 +3,7 @@ import SpriteKit
 
 class GameViewController: UIViewController, GameDelegate {
     
-    var game = Game()
+    var game: Game!
     
     @IBOutlet weak var gameOverBlurView: UIVisualEffectView!
     @IBOutlet weak var scoreLabel: UILabel!
@@ -41,6 +41,12 @@ class GameViewController: UIViewController, GameDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Load the application configurations
+        Game.loadConfig()
+        
+        // Game configurations must be loaded before the game is created
+        self.game = Game()
         self.gameOverBlurView.isHidden = true
         self.game.delegate = self
         

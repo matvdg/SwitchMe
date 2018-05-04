@@ -26,7 +26,7 @@ class Player: Element {
     }
     
     init() {
-        self.node = SKShapeNode(rectOf: CGSize(width: Map.cellSize, height: Map.cellSize))
+        self.node = SKShapeNode(rectOf: CGSize(width: Map.cellSize, height: Map.cellSize), cornerRadius: Game.config["playerCornerRadius"] as! CGFloat)
         self.square.strokeColor = .clear
         self.square.fillColor = self.color
         self.square.position = self.coordinates.position
