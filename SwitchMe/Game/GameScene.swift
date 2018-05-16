@@ -3,10 +3,10 @@ import SpriteKit
 class GameScene: SKScene {
     
     private var previousTime: TimeInterval = 0
-    private let refreshRate: TimeInterval = 1/60 // 60fps
+    private let refreshRate: TimeInterval = 0.015 //
     private var game: Game!
     
-    static let yMoveVectorInitial: CGFloat = 4
+    static let yMoveVectorInitial: CGFloat = 4 // FIXME: move to Config.plist
     static var yMoveVector: CGFloat = yMoveVectorInitial
     
     func prepare(_ viewSize: CGSize, game: Game) {
@@ -24,7 +24,7 @@ class GameScene: SKScene {
     }
     
     func reset() {
-        // TODO reset vector
+        GameScene.yMoveVector = GameScene.yMoveVectorInitial
     }
     
 }

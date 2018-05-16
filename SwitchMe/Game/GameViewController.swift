@@ -1,19 +1,16 @@
 import UIKit
 import SpriteKit
 
-class GameViewController: UIViewController, GameDelegate {
+class GameViewController: UIViewController, GameDelegate, UIGestureRecognizerDelegate {
     
     var game: Game!
     
     @IBOutlet weak var gameOverBlurView: UIVisualEffectView!
     @IBOutlet weak var scoreLabel: UILabel!
     
-    @IBAction func swipeRight(_ sender: Any) {
-        self.game.player.moveRight()
-    }
-    
-    @IBAction func swipeLeft(_ sender: Any) {
-        self.game.player.moveLeft()
+    @IBAction func didPan(recognizer: UIPanGestureRecognizer) {
+        print("Pan triggered")
+        //self.game.player.move(x: sender.translation(in: self.view).x)
     }
     
     @IBAction func changeColor(_ sender: UITapGestureRecognizer) {
@@ -23,7 +20,6 @@ class GameViewController: UIViewController, GameDelegate {
         } else {
             self.game.player.switchColor(right: true)
         }
-        
     }
     
     @IBAction func retry(_ sender: Any) {
@@ -41,6 +37,7 @@ class GameViewController: UIViewController, GameDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("UI Loaded")
         
         // Load the application configurations
         Game.loadConfig()
@@ -68,5 +65,10 @@ class GameViewController: UIViewController, GameDelegate {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    // MARK:- UIGestureRecognizer
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
 }

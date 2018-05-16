@@ -19,11 +19,7 @@ class Player: Element {
         }
     }
     
-    var coordinates = Coordinates(x: .center, y: 100) {
-        didSet {
-            self.square.run(SKAction.moveTo(x: self.coordinates.position.x, duration: self.animationDuration))
-        }
-    }
+    var coordinates = Coordinates(x: .center, y: 100)
     
     init() {
         self.node = SKShapeNode(rectOf: CGSize(width: Map.cellSize, height: Map.cellSize), cornerRadius: Game.config["playerCornerRadius"] as! CGFloat)
@@ -41,6 +37,10 @@ class Player: Element {
         default:
             self.color = left ? .green : .red
         }
+    }
+    
+    func move(x: CGFloat) {
+        self.square.position = CGPoint(x: x, y: self.coordinates.y)
     }
     
     func moveLeft() {
