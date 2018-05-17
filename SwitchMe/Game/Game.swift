@@ -30,8 +30,13 @@ class Game {
     
     init() {
         self.scene = GameScene()
-        self.player = Player()
         self.map = Map(scene: self.scene)
+        
+        let playerSizeRatio = Game.config["playerSizeRatio"] as! CGFloat
+        let playerInitialY = Game.config["playerInitialY"] as! CGFloat
+        let playerSize = CGSize(width: self.map.cellSize * playerSizeRatio, height: self.map.cellSize * playerSizeRatio)
+        
+        self.player = Player(initialPosition: CGPoint(x: self.map.centerX, y: playerInitialY), size: playerSize)
     }
     
     var score = 0 {
@@ -84,8 +89,8 @@ class Game {
         let elementBX = elementB.coordinates.x
         let elementBY = elementB.coordinates.y
         
-        return elementAY <= elementBY + Map.cellSize
-            && elementAY >= elementBY - Map.cellSize
+        return elementAY <= elementBY + self.map.cellSize
+            && elementAY >= elementBY - self.map.cellSize
             && elementAX == elementBX
     }
     

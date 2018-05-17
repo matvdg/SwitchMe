@@ -27,4 +27,20 @@ class GameScene: SKScene {
         GameScene.yMoveVector = GameScene.yMoveVectorInitial
     }
     
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else { return }
+        
+        let positionInScene = touch.location(in: self)
+        let previousPosition = touch.previousLocation(in: self)
+        let translation = CGPoint(x: positionInScene.x - previousPosition.x, y: positionInScene.y - previousPosition.y)
+        
+        // TODO: move away in the right place
+        let playerX = self.game.player.coordinates.x
+        let playerSize = self.game.player.size
+        
+        guard (playerX + translation.x > playerSize.width / 2) && (playerX + translation.x < self.game.map.width -  playerSize.width / 2) else { return }
+        
+        self.game.player.moveBy(x: translation.x)
+    }
+    
 }

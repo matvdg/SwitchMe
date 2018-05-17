@@ -24,6 +24,8 @@ enum WallColor: Int {
 
 class Wall: Element {
     
+    var initialPosition = CGPoint.zero
+    var size: CGSize
     var node: SKNode
     var type: ElementType = .wall
     
@@ -37,18 +39,25 @@ class Wall: Element {
         }
     }
     
-    var coordinates = Coordinates(x: .center, y: 100) {
-        didSet {
-            self.square.position = self.coordinates.position
+    var coordinates: CGPoint {
+        get {
+            return self.node.position
+        }
+        set {
+            self.node.position = newValue
         }
     }
     
-    init() {
-        self.node = SKShapeNode(rectOf: CGSize(width: Map.cellSize, height: Map.cellSize), cornerRadius: Game.config["wallCornerRadius"] as! CGFloat)
+    required init(initialPosition: CGPoint, size: CGSize) {
+        let wallCornerRadius =  Game.config["wallCornerRadius"] as! CGFloat
+        
+        self.node = SKShapeNode(rectOf: size, cornerRadius: wallCornerRadius)
+        self.initialPosition = initialPosition
+        self.size = size
+        self.coordinates = initialPosition
         self.square.strokeColor = .clear
         self.square.fillColor = .red
         self.addShadow()
-        self.square.position = self.coordinates.position
     }
     
     func addShadow() {

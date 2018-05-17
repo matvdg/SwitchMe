@@ -3,28 +3,41 @@ import SpriteKit
 
 class Map {
     
-    static let numberOfColumns = Alignment.count
-    static let height = UIScreen.main.bounds.height
-    static let width = UIScreen.main.bounds.width
-    static let numberOfCellsBetweenLines = 6
-    
-    static var cellSize: CGFloat {
-        // +1 for half a column each side as margin
-        return width / CGFloat(numberOfColumns + 1)
-    }
+    static let numberOfColumns = Game.config["numberOfMapColumns"] as! CGFloat
+    static let numberOfCellsBetweenLines =  Game.config["numberOfCellsBetweenLines"] as! CGFloat
     
     var elements = [Element]()
     var scene: SKScene
     var player: Player!
     
+    var width: CGFloat {
+        return self.scene.frame.width
+    }
+    
+    var height: CGFloat {
+        return self.scene.frame.height
+    }
+    
+    var centerX: CGFloat {
+        return self.width / 2
+    }
+    
+    var cellSize: CGFloat {
+        // +1 for half a column each side as margin
+        return width / Map.numberOfColumns
+    }
+    
+    var elementsGenerator: ElementsGenerator!
+    
     init(scene: SKScene) {
         self.scene = scene
+        self.elementsGenerator = ElementsGenerator(map: self)
     }
     
     func render() {
         // FIXME: all following actions are done by the player element too
         self.elements = self.elements.filter { (element) -> Bool in
-            if element.coordinates.y < -Map.cellSize {
+            if element.coordinates.y < -self.cellSize {
                 element.tearDown()
                 
                 return false
@@ -35,8 +48,8 @@ class Map {
             }
         }
         // Check if new line must be rendered
-        let deltaYBetweenLines = CGFloat(Map.numberOfCellsBetweenLines) * Map.cellSize
-        if let maxY = self.elements.last?.coordinates.y, Map.height - maxY > deltaYBetweenLines  {
+        let deltaYBetweenLines = CGFloat(Map.numberOfCellsBetweenLines) * self.cellSize
+        if let maxY = self.elements.last?.coordinates.y, self.height - maxY > deltaYBetweenLines  {
             self.addLine()
         }
     }
@@ -56,7 +69,7 @@ class Map {
     }
     
     private func addLine() {
-        ElementsGenerator().generateWallLine().forEach {
+        self.elementsGenerator.generateWallLine().forEach {
             self.addElement(element: $0)
         }
     }

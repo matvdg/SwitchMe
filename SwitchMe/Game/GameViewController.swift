@@ -7,15 +7,11 @@ class GameViewController: UIViewController, GameDelegate, UIGestureRecognizerDel
     
     @IBOutlet weak var gameOverBlurView: UIVisualEffectView!
     @IBOutlet weak var scoreLabel: UILabel!
-    
-    @IBAction func didPan(recognizer: UIPanGestureRecognizer) {
-        print("Pan triggered")
-        //self.game.player.move(x: sender.translation(in: self.view).x)
-    }
+    @IBOutlet weak var mapView: SKView!
     
     @IBAction func changeColor(_ sender: UITapGestureRecognizer) {
         let tapLocationX = sender.location(in: self.view).x
-        if tapLocationX < Map.width / 2 {
+        if tapLocationX < self.game.map.width / 2 {
             self.game.player.switchColor(left: true)
         } else {
             self.game.player.switchColor(right: true)
@@ -47,16 +43,14 @@ class GameViewController: UIViewController, GameDelegate, UIGestureRecognizerDel
         self.gameOverBlurView.isHidden = true
         self.game.delegate = self
         
-        let view = self.view as! SKView
-        
         // Load the SKScene from 'GameScene.sks'
-        self.game.prepare(viewSize: self.view.bounds.size)
+        self.game.prepare(viewSize: self.mapView.bounds.size)
         
         // Present the scene
-        view.presentScene(self.game.scene)
-        view.ignoresSiblingOrder = true
-        view.showsFPS = false
-        view.showsNodeCount = false
+        self.mapView.presentScene(self.game.scene)
+        self.mapView.ignoresSiblingOrder = true
+        self.mapView.showsFPS = false
+        self.mapView.showsNodeCount = false
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -65,10 +59,5 @@ class GameViewController: UIViewController, GameDelegate, UIGestureRecognizerDel
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
-    }
-    
-    // MARK:- UIGestureRecognizer
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
     }
 }

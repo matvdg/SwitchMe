@@ -3,8 +3,18 @@
 <plist version="1.0">
 <dict>
 	<key>wallCornerRadius</key>
-	<integer>4</integer>
+	<integer>0</integer>
 	<key>playerCornerRadius</key>
 	<integer>4</integer>
+	<key>playerSizeRatio</key>
+	<real>0.8</real>
+	<key>playerInitialY</key>
+	<integer>100</integer>
+	<key>numberOfMapColumns</key>
+	<integer>5</integer>
+	<key>numberOfCellsBetweenLines</key>
+	<integer>6</integer>
+	<key>minimumWallsPerLine</key>
+	<integer>3</integer>
 </dict>
 </plist>

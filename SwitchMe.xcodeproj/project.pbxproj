@@ -11,7 +11,6 @@
 		F651167A2097EC53008CB9D5 /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65116792097EC53008CB9D5 /* Element.swift */; };
 		F658AEEA2097E3910071AB37 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = F658AEE92097E3910071AB37 /* Player.swift */; };
 		F658AEEC2097E4CC0071AB37 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = F658AEEB2097E4CC0071AB37 /* Color.swift */; };
-		F658AEEE2097E5E90071AB37 /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = F658AEED2097E5E90071AB37 /* Coordinates.swift */; };
 		F65B9742209BDAC500C422B8 /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65B9741209BDAC500C422B8 /* Feedback.swift */; };
 		F6B0ADC2209B2D8200E392A1 /* Int+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B0ADC1209B2D8200E392A1 /* Int+Random.swift */; };
 		F6CF75D3209B22B900D85D76 /* ElementsGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CF75D2209B22B900D85D76 /* ElementsGenerator.swift */; };
@@ -31,7 +30,6 @@
 		F65116792097EC53008CB9D5 /* Element.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
 		F658AEE92097E3910071AB37 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		F658AEEB2097E4CC0071AB37 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		F658AEED2097E5E90071AB37 /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
 		F65B9741209BDAC500C422B8 /* Feedback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
 		F6B0ADC1209B2D8200E392A1 /* Int+Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Random.swift"; sourceTree = "<group>"; };
 		F6CF75D2209B22B900D85D76 /* ElementsGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementsGenerator.swift; sourceTree = "<group>"; };
@@ -106,7 +104,6 @@
 			children = (
 				F6CF75D2209B22B900D85D76 /* ElementsGenerator.swift */,
 				F6B0ADC3209B2EF300E392A1 /* Element */,
-				F658AEED2097E5E90071AB37 /* Coordinates.swift */,
 				F63B25B42099E0330000E4F7 /* Map.swift */,
 			);
 			path = Map;
@@ -217,7 +214,6 @@
 				F65B9742209BDAC500C422B8 /* Feedback.swift in Sources */,
 				F6F4892A2097DE86002E4C2E /* GameScene.swift in Sources */,
 				F63B25B52099E0330000E4F7 /* Map.swift in Sources */,
-				F658AEEE2097E5E90071AB37 /* Coordinates.swift in Sources */,
 				F6F4892C2097DE86002E4C2E /* GameViewController.swift in Sources */,
 				F658AEEC2097E4CC0071AB37 /* Color.swift in Sources */,
 				F6E83004209BB46B00D30D91 /* Game.swift in Sources */,
@@ -369,7 +365,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FXHT86T87D;
+				DEVELOPMENT_TEAM = LNEA24X427;
 				INFOPLIST_FILE = "SwitchMe/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -387,7 +383,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FXHT86T87D;
+				DEVELOPMENT_TEAM = LNEA24X427;
 				INFOPLIST_FILE = "SwitchMe/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

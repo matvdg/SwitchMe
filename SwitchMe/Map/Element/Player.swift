@@ -12,20 +12,32 @@ class Player: Element {
     private var square: SKShapeNode {
         return self.node as! SKShapeNode
     }
-    
+        
     var color: SKColor = .green {
         willSet {
             self.square.fillColor = newValue
         }
     }
     
-    var coordinates = Coordinates(x: .center, y: 100)
+    var coordinates: CGPoint {
+        get {
+            return self.node.position
+        }
+        set {
+            self.node.position = newValue
+        }
+    }
     
-    init() {
-        self.node = SKShapeNode(rectOf: CGSize(width: Map.cellSize, height: Map.cellSize), cornerRadius: Game.config["playerCornerRadius"] as! CGFloat)
+    var size: CGSize = CGSize.zero
+    var initialPosition: CGPoint = CGPoint.zero
+    
+    required init(initialPosition: CGPoint, size: CGSize) {
+        self.node = SKShapeNode(rectOf: size, cornerRadius: Game.config["playerCornerRadius"] as! CGFloat)
         self.square.strokeColor = .clear
         self.square.fillColor = self.color
-        self.square.position = self.coordinates.position
+        self.coordinates = initialPosition
+        self.size = size
+        self.initialPosition = initialPosition
     }
     
     func switchColor(left: Bool = false, right: Bool = false) {
@@ -39,29 +51,16 @@ class Player: Element {
         }
     }
     
-    func move(x: CGFloat) {
-        self.square.position = CGPoint(x: x, y: self.coordinates.y)
-    }
-    
-    func moveLeft() {
-        let currentPosition = self.coordinates.x.rawValue
-        let newPosition = currentPosition - 1 >= 0 ? currentPosition - 1 : 0
-        self.coordinates.x = Alignment(rawValue: newPosition)!
-    }
-    
-    func moveRight() {
-        let currentPosition = self.coordinates.x.rawValue
-        let newPosition = currentPosition + 1 < 5 ? currentPosition + 1 : 4
-        self.coordinates.x = Alignment(rawValue: newPosition)!
+    func moveBy(x: CGFloat) {
+        self.coordinates.x += x
     }
     
     func moveDown() {}
 
     func tearDown() {
         self.color = .green
-        self.coordinates.x = .center
+        self.coordinates = self.initialPosition
         self.node.removeFromParent()
     }
-    
     
 }
